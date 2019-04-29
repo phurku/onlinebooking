@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "387317097619",
+    "firebase_url": "https://hamropasal-f44ad.firebaseio.com",
+    "project_id": "hamropasal-f44ad",
+    "storage_bucket": "hamropasal-f44ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387317097619:android:e2b83c5c50699db4",
+        "android_client_info": {
+          "package_name": "com.example.hamropasal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387317097619-669gh1a8ksehlgf50ldv6cgkglvhu5rh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6fpww1Wy3k95rZHU26-CgfzHOe8-MxE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387317097619-669gh1a8ksehlgf50ldv6cgkglvhu5rh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
