@@ -23,6 +23,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  carousel_pro: ^0.0.13
 
   image_picker: ^0.5.0+9
   shared_preferences: ^0.5.1
@@ -53,9 +54,50 @@ flutter:
    - images/reg.png
    - images/login.png
    - images/hotel.jpg
+   - images/hotel1.jpg
+   - images/hotel2.jpg
+   - images/hotel3.jpg
+   - images/hotel4.jpg
+   - images/hotel5.jpg
+   - images/hotel6.jpg
+   - images/hotel0.jpg
+   - images/hotel7.jpg
+   - images/hotel8.jpg
+   - images/hotel9.jpg
+   
    - images/airline.jpg
    - images/drawer.jpg
-   - images/bus.jpg
+   - images/doc.jpg
+   - images/doc1.jpg
+
+   - images/hayat.jpg
+   - images/hayat1.jpg
+   - images/hayat2.jpg
+   - images/hayat3.png
+   - images/hayat4.jpg
+   - images/room1.jpg
+
+   - images/room2.jpg
+   - images/room3.jpg
+   - images/hayat5.jpg
+   - images/din.jpg
+   - images/din1.jpg
+   - images/din2.png
+   - images/din3.png
+   - images/din4.jpg
+   - images/swm.jpg
+   - images/swm1.png
+
+   - images/bus1.jpg
+   - images/air1.jpg
+   
+   - images/air2.jpg
+   - images/air3.jpg
+   - images/air4.jpg
+   - images/air5.jpg
+   - images/air6.jpg
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

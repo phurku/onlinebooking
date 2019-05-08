@@ -10,6 +10,7 @@ class _BusDetailPageState extends State<BusDetailPage> {
   Widget build(BuildContext context) {
     return Container(
       
+      
     );
   }
 }
