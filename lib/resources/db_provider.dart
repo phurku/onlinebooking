@@ -1,9 +1,10 @@
+import 'package:hamropasal/models/reservation_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'package:path/path.dart';
 import 'dart:async';
-import '../models/item_model.dart';
+import '../models/reservation_model.dart';
 import 'constants.dart';
 
 class DbProvider{
@@ -31,14 +32,14 @@ class DbProvider{
         version: 1,
         onCreate: (Database newDb, int version){
           newDb.execute(
-           "CREATE TABLE $tableName($columnId INTEGER PRIMARY KEY,$columnTitle TEXT, $columnDescription TEXT,$columnImage TEXT)"
+           "CREATE TABLE $tableName($columnId INTEGER PRIMARY KEY,$columnfullname TEXT, $columnemail TEXT,$columnnumber TEXT, $columncontact TEXT)"
           );
         },
     );
     return db;
   }
 
-  Future<List> fetchCategories() async {
+  Future<List> fetchItems() async {
     var dbClient = await db;
     var res = await dbClient.rawQuery('SELECT * FROM $tableName');
     return res;
@@ -46,7 +47,7 @@ class DbProvider{
 
   Future<List> searchItems(String term) async {
     var dbClient = await db;
-    var res = await dbClient.rawQuery("SELECT * FROM $tableName WHERE $columnTitle LIKE '%$term%'");
+    var res = await dbClient.rawQuery("SELECT * FROM $tableName WHERE $columnfullname $columncontact $columnemail $columnnumber LIKE '%$term%'");
     return res;
   }
 
@@ -60,7 +61,7 @@ class DbProvider{
     );
 
     if (maps.length > 0){
-      return ItemModel.fromMap(maps.first);
+     // return ItemModel.fromMap(maps.first);
     }
 
     return null;
@@ -68,7 +69,7 @@ class DbProvider{
 
   Future<int> addItem(ItemModel item) async {
     var dbClient = await db;
-    return dbClient.insert(tableName, item.toMap());
+    return dbClient.insert(tableName, item.toJson());
   }
 
   Future<int> deleteItem(int id) async {

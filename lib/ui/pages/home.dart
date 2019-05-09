@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<List> getItems() async {
-    return DbProvider().fetchCategories();
+    return DbProvider().fetchItems();
   }
 
   @override

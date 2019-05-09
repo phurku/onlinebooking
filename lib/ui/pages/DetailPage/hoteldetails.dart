@@ -440,6 +440,22 @@ class _HayatDetailPageState extends State<HayatDetailPage> {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
+                      Column(
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              RaisedButton(
+                                onPressed: (){
+                                  Navigator.pushReplacement(context, MaterialPageRoute(
+                                    builder: (context)=>FillForm()
+                                  ));
+                                },
+                                child: Text('Reserve',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold
+                              )))
+                            ],
+                          ),
+                        ],
+                      ),
                         ],
                       ),
                       SizedBox(
@@ -531,22 +547,7 @@ class _HayatDetailPageState extends State<HayatDetailPage> {
                       SizedBox(
                         height: 20,
                       ),
-                      Column(
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              RaisedButton(
-                                onPressed: (){
-                                  Navigator.pushReplacement(context, MaterialPageRoute(
-                                    builder: (context)=>FillForm()
-                                  ));
-                                },
-                                child: Text('Reserve',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold
-                              )))
-                            ],
-                          ),
-                        ],
-                      ),
+                      
                     ])),
           ],
         ));
