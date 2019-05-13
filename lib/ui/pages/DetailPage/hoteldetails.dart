@@ -385,7 +385,7 @@ class _HayatDetailPageState extends State<HayatDetailPage> {
                   title: Text('Reservation'),
                   onTap: () {
                     Navigator.pushReplacement(context, MaterialPageRoute(
-                      builder: (context)=>FillForm()
+                      builder: (context)=>AddPage()
                     ));
                   },
                 ),
@@ -447,7 +447,7 @@ class _HayatDetailPageState extends State<HayatDetailPage> {
                               RaisedButton(
                                 onPressed: (){
                                   Navigator.pushReplacement(context, MaterialPageRoute(
-                                    builder: (context)=>FillForm()
+                                    builder: (context)=>AddPage()
                                   ));
                                 },
                                 child: Text('Reserve',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold

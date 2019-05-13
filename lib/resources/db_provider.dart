@@ -4,7 +4,6 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'package:path/path.dart';
 import 'dart:async';
-import '../models/reservation_model.dart';
 import 'constants.dart';
 
 class DbProvider{
@@ -32,7 +31,7 @@ class DbProvider{
         version: 1,
         onCreate: (Database newDb, int version){
           newDb.execute(
-           "CREATE TABLE $tableName($columnId INTEGER PRIMARY KEY,$columnfullname TEXT, $columnemail TEXT,$columnnumber TEXT, $columncontact TEXT)"
+           "CREATE TABLE $tableName($columnId INTEGER PRIMARY KEY,$columnfullname TEXT, $columnentrydate TEXT,$columnexitdate TEXT,$columnemail TEXT,$columncontact TEXT)"
           );
         },
     );
@@ -47,7 +46,7 @@ class DbProvider{
 
   Future<List> searchItems(String term) async {
     var dbClient = await db;
-    var res = await dbClient.rawQuery("SELECT * FROM $tableName WHERE $columnfullname $columncontact $columnemail $columnnumber LIKE '%$term%'");
+    var res = await dbClient.rawQuery("SELECT * FROM $tableName WHERE $columnfullname LIKE '%$term%'");
     return res;
   }
 
@@ -69,7 +68,7 @@ class DbProvider{
 
   Future<int> addItem(ItemModel item) async {
     var dbClient = await db;
-    return dbClient.insert(tableName, item.toJson());
+    return dbClient.insert(tableName, item.toMap());
   }
 
   Future<int> deleteItem(int id) async {
