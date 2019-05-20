@@ -6,3 +6,7 @@ const columnnumber = 'number';
 const columncontact = 'contact';
 const columnentrydate = 'entrydate';
 const columnexitdate = 'exitdate';
+const columndate= 'date';
+const columnname='name';
+const columnsource='source';
+const columndestination='destination';

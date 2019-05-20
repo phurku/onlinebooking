@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hamropasal/models/flight_model.dart';
 
-import 'package:hamropasal/models/hotel_reservation_model.dart';
 
 class DetailPage extends StatelessWidget {
   final ItemModel item;
@@ -36,9 +36,10 @@ class DetailPage extends StatelessWidget {
             SizedBox(height: 20.0,),
             Text(item.number),
             SizedBox(height: 20.0,),
-            Text(item.entrydate),
+            
+            Text(item.source),
             SizedBox(height: 20.0,),
-            Text(item.exitdate),
+            Text(item.destination),
             SizedBox(height: 20.0,),
           ],
         ),

@@ -1,8 +1,8 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:hamropasal/ui/pages/Hotel/reservationform.dart';
 import 'package:hamropasal/ui/pages/home.dart';
 import 'package:hamropasal/ui/pages/login.dart';
-import 'package:hamropasal/ui/pages/reservationform.dart';
 
 class HotelDetailPage extends StatefulWidget {
   @override

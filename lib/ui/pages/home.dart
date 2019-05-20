@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hamropasal/resources/db_provider.dart';
-import 'package:hamropasal/ui/pages/DetailPage/airdetail.dart';
-import 'package:hamropasal/ui/pages/DetailPage/busdetail.dart';
-import 'package:hamropasal/ui/pages/DetailPage/doctors.dart';
-import 'package:hamropasal/ui/pages/DetailPage/hoteldetails.dart';
-//import 'package:hamropasal/ui/pages/detailpage.dart';
+import 'package:hamropasal/resources/hotel_db_provider.dart';
+import 'package:hamropasal/ui/pages/Flight/airdetail.dart';
+// import 'package:hamropasal/ui/pages/Doctor/doctor_detail.dart';
+// import 'package:hamropasal/ui/pages/Flight/airdetail.dart';
+import 'package:hamropasal/ui/pages/Hotel/hoteldetails.dart';
+
 import 'package:hamropasal/ui/pages/login.dart';
 
 class HomePage extends StatefulWidget {
@@ -132,225 +132,112 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: ListView(
-        children: <Widget>[
-          Container(
-            child: Column(
-              children: <Widget>[
-                Divider(),
-                AnimatedContainer(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 0,
-                    horizontal: 30,
-                  ),
-                  child: ListTile(
-                    title: Text(
-                      'Flight Tickets',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+      body: Center(
+        child: ListView(
+          children: <Widget>[
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Divider(),
+                  AnimatedContainer(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal: 130,
                     ),
-                    trailing: Text(
-                      'Hotel Reservation',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                    child: ListTile(
+                      title: Text(
+                        'Flight Tickets',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      
                     ),
+                    duration: Duration(microseconds: 500),
                   ),
-                  duration: Duration(microseconds: 500),
-                ),
-                Row(
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
+                  
+                      Row(
+                        children: <Widget>[
+                          
+                          Card(
+                            margin: EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 125),
+                            elevation: 3,
+                            child: FlatButton(
+                                padding: EdgeInsets.all(20),
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => AirDetailPage()));
+                                },
+                                child: Image(
+                                  height: 150,
+                                  width: 120,
+                                  image: AssetImage('images/airline.jpg'),
+                                )),
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                      Divider(),
+                     AnimatedContainer(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal: 130,
+                    ),
+                    child: ListTile(
+                      title: Text(
+                        'Hotel Booking',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      
+                    ),
+                    duration: Duration(microseconds: 500),
+                  ),
+                      Row(children: <Widget>[
+                        
                         Card(
-                          margin: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 25),
-                          elevation: 3,
-                          child: FlatButton(
-                              padding: EdgeInsets.all(20),
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => AirDetailPage()));
-                              },
-                              child: Image(
-                                height: 150,
-                                width: 120,
-                                image: AssetImage('images/airline.jpg'),
-                              )),
-                          color: Colors.white,
-                        ),
-                      ],
-                    ),
-                    Column(children: <Widget>[
-                      Card(
-                          margin: EdgeInsets.symmetric(
-                              vertical: 110, horizontal: 25),
-                          elevation: 3,
-                          child: FlatButton(
-                              padding: EdgeInsets.all(20),
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => HotelDetailPage()));
-                              },
-                              child: Image(
-                                height: 150,
-                                width: 120,
-                                image: AssetImage('images/hotel.jpg'),
-                              )),
-                          color: Colors.white),
-                    ]),
-                  ],
-                ),
-
-                // SizedBox(height: 10,),
-                Container(
-                  padding: EdgeInsets.all(20),
-                  child: ListTile(
-                    title: Text(
-                      'Bus Ticket Booking',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      'Doctor appointment',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
+                            margin: EdgeInsets.symmetric(
+                                vertical: 40, horizontal: 125),
+                            elevation: 3,
+                            child: FlatButton(
+                                padding: EdgeInsets.all(20),
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HotelDetailPage()));
+                                },
+                                child: Image(
+                                  height: 150,
+                                  width: 130,
+                                  image: AssetImage('images/hotel.jpg'),
+                                )),
+                            color: Colors.white),
+                      ]),
+                    ],
                   ),
-                ),
 
-                Row(
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Card(
-                          margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 25),
-                          elevation: 3,
-                          child: FlatButton(
-                              padding: EdgeInsets.all(20),
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => BusDetailPage()));
-                              },
-                              child: Image(
-                                height: 150,
-                                width: 120,
-                                image: AssetImage('images/bus1.jpg'),
-                              )),
-                          color: Colors.white,
-                        ),
-                      ],
-                    ),
-                    Column(children: <Widget>[
-                      Card(
-                          margin: EdgeInsets.symmetric(
-                              vertical: 110, horizontal: 25),
-                          elevation: 3,
-                          child: FlatButton(
-                              padding: EdgeInsets.all(20),
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DoctorDetailPage()));
-                              },
-                              child: Image(
-                                height: 150,
-                                width: 120,
-                                image: AssetImage('images/doc1.jpg'),
-                              )),
-                          color: Colors.white),
-                    ]),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
+                  // SizedBox(height: 10,),
+                 
+            )]
+        ),
+      )  
+    
+      );
+
+      
+    
   }
 }
 
-busDetail(context) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        'Tickets booking',
-        style: TextStyle(
-            background: Paint(),
-            color: Colors.green,
-            fontSize: 6,
-            fontStyle: FontStyle.italic),
-      ),
-      Icon(Icons.train),
-      Divider(
-        height: 8,
-      ),
-      Column(children: <Widget>[
-        RaisedButton(
-          elevation: 0,
-          color: Colors.lightBlue,
-          onPressed: () => Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => BusDetailPage())),
-          child: Text(
-            'View Details',
-            style: TextStyle(fontSize: 5, fontWeight: FontWeight.bold),
-          ),
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        )
-      ]),
-    ],
-  );
-}
 
-appointmentDoctor(context) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        'Doctor appointment booking',
-        style: TextStyle(
-            background: Paint(),
-            color: Colors.green,
-            fontSize: 6,
-            fontStyle: FontStyle.italic),
-      ),
-      Icon(Icons.hotel),
-      Divider(
-        height: 8,
-      ),
-      Column(children: <Widget>[
-        RaisedButton(
-          elevation: 0,
-          color: Colors.lightBlue,
-          onPressed: () => Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => DoctorDetailPage())),
-          child: Text(
-            'View Details',
-            style: TextStyle(fontSize: 5, fontWeight: FontWeight.bold),
-          ),
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        )
-      ]),
-    ],
-  );
-}
+
 
 myDetail1(context) {
   return Column(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
@@ -439,7 +326,7 @@ airDetail(context) {
             elevation: 0,
             color: Colors.lightBlue,
             onPressed: () => Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => AirDetailPage())),
+                MaterialPageRoute(builder: (context) =>AirDetailPage())),
             child: Text(
               'View Details',
               style: TextStyle(fontSize: 5, fontWeight: FontWeight.bold),

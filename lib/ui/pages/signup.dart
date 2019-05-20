@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hamropasal/resources/firebase_auth_provider.dart';
-import 'package:hamropasal/ui/pages/home.dart';
 
 class SignupPage extends StatefulWidget {
   @override

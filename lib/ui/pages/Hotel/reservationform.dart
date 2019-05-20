@@ -1,10 +1,8 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:hamropasal/models/reservation_model.dart';
+import 'package:hamropasal/models/hotel_reservation_model.dart';
 import 'package:hamropasal/resources/fireStore_provider.dart';
 import 'package:hamropasal/ui/pages/login.dart';
-import 'package:hamropasal/ui/pages/recordpage.dart';
-import 'package:image_picker/image_picker.dart';
+
 
 class AddPage extends StatefulWidget {
   final ItemModel item;
@@ -49,7 +47,7 @@ class _AddPageState extends State<AddPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Your Record"),
+        title: Text("Register your Record"),
         backgroundColor: Colors.blueAccent,
         actions: <Widget>[
           IconButton(
@@ -111,6 +109,7 @@ class _AddPageState extends State<AddPage> {
       },
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
+        icon: Icon(Icons.person),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         hintText: "Fullname",
 //prefixIcon: Icon(Icons.title)
@@ -129,6 +128,7 @@ class _AddPageState extends State<AddPage> {
       },
       controller: _email,
       decoration: InputDecoration(
+        icon: Icon(Icons.email),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         hintText: "Email",
       ),
@@ -146,6 +146,7 @@ class _AddPageState extends State<AddPage> {
       },
       controller: _contact,
       decoration: InputDecoration(
+        icon: Icon(Icons.phone),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         hintText: "Contact number",
       ),
@@ -163,6 +164,7 @@ class _AddPageState extends State<AddPage> {
       },
       controller: _number,
       decoration: InputDecoration(
+        icon: Icon(Icons.people),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         hintText: "Number of menbers staying",
       ),
@@ -230,12 +232,10 @@ class _AddPageState extends State<AddPage> {
               _number == null ||
               _entrydate == null ||
               _exitdate == null ) {
-            return AddPage(); 
+            return; 
           }
         
-          else{
-            return AlertDialog();
-          }
+          
           Map<String, dynamic> item = {
             'fullname': _fullname.text,
             'email': _email.text,
@@ -263,11 +263,5 @@ class _AddPageState extends State<AddPage> {
         ),
         content: Text('Thank you for using our service.'),
       );
-  // Future submit()async{
-  // if(_fullname==null && email==null && number==null && contact==null&&entrydate==null&&exitdate==null){
-  //   return AlertDialog(
-  //     title: Text('Successfully registered',style: TextStyle(color: Colors.green,fontSize: 20),),
-  //     content: Text('Thank you for using our service.'),
-  //   );
-  // }
+  
 }
