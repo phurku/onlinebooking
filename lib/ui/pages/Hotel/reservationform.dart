@@ -3,7 +3,6 @@ import 'package:hamropasal/models/hotel_reservation_model.dart';
 import 'package:hamropasal/resources/fireStore_provider.dart';
 import 'package:hamropasal/ui/pages/login.dart';
 
-
 class AddPage extends StatefulWidget {
   final ItemModel item;
 
@@ -61,7 +60,7 @@ class _AddPageState extends State<AddPage> {
       ),
       body: Form(
         key: datakey,
-              child: ListView(
+        child: ListView(
           padding: EdgeInsets.all(10),
           children: <Widget>[
             SizedBox(
@@ -109,6 +108,7 @@ class _AddPageState extends State<AddPage> {
       },
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
+        labelText: 'Fullname',
         icon: Icon(Icons.person),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         hintText: "Fullname",
@@ -128,6 +128,7 @@ class _AddPageState extends State<AddPage> {
       },
       controller: _email,
       decoration: InputDecoration(
+        labelText: 'Email',
         icon: Icon(Icons.email),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         hintText: "Email",
@@ -146,6 +147,7 @@ class _AddPageState extends State<AddPage> {
       },
       controller: _contact,
       decoration: InputDecoration(
+        labelText: 'Contact number',
         icon: Icon(Icons.phone),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         hintText: "Contact number",
@@ -225,17 +227,16 @@ class _AddPageState extends State<AddPage> {
         icon: Icon(Icons.save),
         label: Text("Submit"),
         color: Colors.blue,
-        onPressed: ()async {
+        onPressed: () async {
           if (_fullname == null ||
               _email == null ||
               _contact == null ||
               _number == null ||
               _entrydate == null ||
-              _exitdate == null ) {
-            return; 
+              _exitdate == null) {
+            return;
           }
-        
-          
+
           Map<String, dynamic> item = {
             'fullname': _fullname.text,
             'email': _email.text,
@@ -263,5 +264,4 @@ class _AddPageState extends State<AddPage> {
         ),
         content: Text('Thank you for using our service.'),
       );
-  
 }

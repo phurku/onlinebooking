@@ -27,7 +27,8 @@ class _LoginPageState extends State<LoginPage> {
                 height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('images/login.png'), fit: BoxFit.contain),
+                      image: AssetImage('images/login.png'),
+                      fit: BoxFit.contain),
                 ),
               ),
               SizedBox(
@@ -42,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                         keyboardType: TextInputType.emailAddress,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
+                            labelText: "Email",
                             hintText: 'Email',
                             hintStyle: TextStyle(color: Colors.black),
                             border: OutlineInputBorder(
@@ -61,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                         obscureText: true,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
+                            labelText: "Password",
                             hintText: 'Password',
                             hintStyle: TextStyle(color: Colors.black),
                             border: OutlineInputBorder(
@@ -104,21 +107,27 @@ class _LoginPageState extends State<LoginPage> {
                                   'Not Registered yet?',
                                   style: TextStyle(color: Colors.black),
                                 ),
-                                trailing: FlatButton(
-                                  padding: EdgeInsets.all(50),
-                                  onPressed: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) => SignupPage())),
+                              )),
+                          Expanded(
+                            flex: 1,
+                            child: ListTile(
+                                contentPadding: EdgeInsets.all(20),
+                                title: RaisedButton(
+                                  color: Colors.blueGrey,
                                   child: Text(
-                                    "Signup",
+                                    'Signup',
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20),
                                   ),
-                                ),
-                              ))
+                                  onPressed: (){
+                                    Navigator.pushReplacement(context, MaterialPageRoute(
+                                      builder: (context)=>SignupPage()
+                                    ));
+                                  },
+                                )),
+                          )
                         ])
                   ],
                 ),

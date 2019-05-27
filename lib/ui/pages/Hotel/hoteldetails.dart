@@ -282,6 +282,9 @@ class HayatDetailPage extends StatefulWidget {
 }
 
 class _HayatDetailPageState extends State<HayatDetailPage> {
+  var _pageController=PageController();
+
+  int selectMenu=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -379,6 +382,18 @@ class _HayatDetailPageState extends State<HayatDetailPage> {
                 ),
                  ListTile(
                   leading: Icon(
+                    Icons.map,
+                    size: 35,
+                  ),
+                  title: Text('Map'),
+                  onTap: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                      builder: (context)=>AddPage()
+                    ));
+                  },
+                ),
+                 ListTile(
+                  leading: Icon(
                     Icons.book,
                     size: 35,
                   ),
@@ -389,6 +404,7 @@ class _HayatDetailPageState extends State<HayatDetailPage> {
                     ));
                   },
                 ),
+
                 SizedBox(
                   height: 15,
                 ),
@@ -404,6 +420,7 @@ class _HayatDetailPageState extends State<HayatDetailPage> {
                   },
                 ),
               ],
+              
             ),
           ),
         ),
@@ -440,22 +457,22 @@ class _HayatDetailPageState extends State<HayatDetailPage> {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
-                      Column(
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              RaisedButton(
-                                onPressed: (){
-                                  Navigator.pushReplacement(context, MaterialPageRoute(
-                                    builder: (context)=>AddPage()
-                                  ));
-                                },
-                                child: Text('Reserve',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold
-                              )))
-                            ],
-                          ),
-                        ],
-                      ),
+                      // Column(
+                      //   children: <Widget>[
+                      //     Row(
+                      //       children: <Widget>[
+                      //         RaisedButton(
+                      //           onPressed: (){
+                      //             Navigator.pushReplacement(context, MaterialPageRoute(
+                      //               builder: (context)=>AddPage()
+                      //             ));
+                      //           },
+                      //           child: Text('Reserve',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold
+                      //         )))
+                      //       ],
+                      //     ),
+                      //   ],
+                      // ),
                         ],
                       ),
                       SizedBox(
@@ -547,10 +564,31 @@ class _HayatDetailPageState extends State<HayatDetailPage> {
                       SizedBox(
                         height: 20,
                       ),
+                       Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              RaisedButton(
+                                color: Colors.red,
+                                onPressed: (){
+                                  Navigator.pushReplacement(context, MaterialPageRoute(
+                                    builder: (context)=>AddPage()
+                                  ));
+                                },
+                                child: Text('Reserve',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold
+                              )))
+                            ],
+                          ),
+                        ],
+                      ),
+
                       
                     ])),
           ],
-        ));
+        ),
+       
+                );
   }
 }
 
@@ -571,6 +609,9 @@ class _ViewroomsState extends State<Viewrooms> {
 }
 
 class AboutHayat extends StatefulWidget {
+
+  var _pageController=PageController();
+  int selectMenu = 0;
   @override
   _AboutHayatState createState() => _AboutHayatState();
 }
@@ -578,7 +619,7 @@ class AboutHayat extends StatefulWidget {
 class _AboutHayatState extends State<AboutHayat> {
   @override
   Widget build(BuildContext context) {
-    var selectItem;
+    var selectMenu;
     var _pageController=PageController();
         return Scaffold(
             appBar: AppBar(
@@ -654,33 +695,33 @@ class _AboutHayatState extends State<AboutHayat> {
                     ]
                     )
                     ),
-                    bottomNavigationBar: BottomNavigationBar(
-                     currentIndex: selectItem,
-                    type: BottomNavigationBarType.fixed,
-                    onTap: (index){
-                      _pageController.animateToPage(index,duration:Duration(milliseconds: 300),curve: Curves.easeInOut);
-                   setState(() {
-                    selectItem=index; 
-                   });
-                               },
-                               items: [
+                //     bottomNavigationBar: BottomNavigationBar(
+                //      currentIndex: selectMenu,
+                //     type: BottomNavigationBarType.fixed,
+                //     onTap: (index){
+                //       _pageController.animateToPage(index,duration:Duration(milliseconds: 300),curve: Curves.easeInOut);
+                //    setState(() {
+                //     selectMenu=index; 
+                //    });
+                //                },
+                //                items: [
 
-                                 BottomNavigationBarItem(
-                                   backgroundColor: Colors.blue,
-                                   title: Text('Home'),
-                                   icon: Icon(Icons.home)
-                                 ),
-                                  BottomNavigationBarItem(
-                                   title: Text('Reservation'),
-                                   icon: Icon(Icons.book)
-                                 ),
-                                  BottomNavigationBarItem(
-                                   title: Text('Exit'),
-                                   icon: Icon(Icons.exit_to_app)
-                                 ),
-                               ],
+                //                  BottomNavigationBarItem(
+                //                    backgroundColor: Colors.blue,
+                //                    title: Text('Home'),
+                //                    icon: Icon(Icons.home)
+                //                  ),
+                //                   BottomNavigationBarItem(
+                //                    title: Text('Map'),
+                //                    icon: Icon(Icons.map)
+                //                  ),
+                //                   BottomNavigationBarItem(
+                //                    title: Text('Exit'),
+                //                    icon: Icon(Icons.exit_to_app)
+                //                  ),
+                //                ],
                
-                ),
+                // ),
                 );
   }
 }

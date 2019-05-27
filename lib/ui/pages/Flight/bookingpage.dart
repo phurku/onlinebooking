@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hamropasal/models/flight_model.dart';
 import 'package:hamropasal/resources/fireStore_provider.dart';
 import 'package:hamropasal/ui/pages/Flight/airdetail.dart';
-import 'package:hamropasal/ui/pages/login.dart';
 
 class BookingPage extends StatefulWidget {
   final ItemModel item;

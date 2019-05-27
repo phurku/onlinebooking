@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      Divider(),
+                  //    Divider(),
                      AnimatedContainer(
                     padding: EdgeInsets.symmetric(
                       vertical: 0,
